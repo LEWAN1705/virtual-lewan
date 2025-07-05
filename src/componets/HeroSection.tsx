@@ -1,16 +1,21 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import video1 from "../assets/video1.mp4";
 import video2 from "../assets/video2.mp4";
 
-const HeroSection = () => {
-  const [showModal, setShowModal] = useState(false);
-  const [videoPlaying, setVideoPlaying] = useState({ video1: true, video2: true });
+interface VideoPlayingState {
+  video1: boolean;
+  video2: boolean;
+}
 
-  const handleStartFree = () => {
+const HeroSection: React.FC = () => {
+  const [showModal, setShowModal] = useState<boolean>(false);
+  const [videoPlaying, setVideoPlaying] = useState<VideoPlayingState>({ video1: true, video2: true });
+
+  const handleStartFree = (): void => {
     setShowModal(true);
   };
 
-  const handleDocumentation = () => {
+  const handleDocumentation = (): void => {
     // Scroll to features section
     const featuresSection = document.getElementById('features');
     if (featuresSection) {
@@ -18,14 +23,14 @@ const HeroSection = () => {
     }
   };
 
-  const toggleVideo = (videoKey) => {
+  const toggleVideo = (videoKey: keyof VideoPlayingState): void => {
     setVideoPlaying(prev => ({
       ...prev,
       [videoKey]: !prev[videoKey]
     }));
   };
 
-  const closeModal = () => {
+  const closeModal = (): void => {
     setShowModal(false);
   };
 
@@ -141,4 +146,4 @@ const HeroSection = () => {
   )
 }
 
-export default HeroSection
+export default HeroSection 

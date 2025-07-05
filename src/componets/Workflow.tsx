@@ -1,14 +1,14 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { CheckCircle2, ChevronDown, ChevronUp } from "lucide-react";
 import codeImg from "../assets/code.jpg";
 import { checklistItems } from "../constants";
 
-const Workflow = () => {
-  const [completedItems, setCompletedItems] = useState([]);
-  const [expandedItems, setExpandedItems] = useState([]);
-  const [hoveredItem, setHoveredItem] = useState(null);
+const Workflow: React.FC = () => {
+  const [completedItems, setCompletedItems] = useState<number[]>([]);
+  const [expandedItems, setExpandedItems] = useState<number[]>([]);
+  const [hoveredItem, setHoveredItem] = useState<number | null>(null);
 
-  const toggleCompleted = (index) => {
+  const toggleCompleted = (index: number): void => {
     setCompletedItems(prev => 
       prev.includes(index) 
         ? prev.filter(i => i !== index)
@@ -16,7 +16,7 @@ const Workflow = () => {
     );
   };
 
-  const toggleExpanded = (index) => {
+  const toggleExpanded = (index: number): void => {
     setExpandedItems(prev => 
       prev.includes(index) 
         ? prev.filter(i => i !== index)
@@ -24,7 +24,7 @@ const Workflow = () => {
     );
   };
 
-  const getProgressPercentage = () => {
+  const getProgressPercentage = (): number => {
     return Math.round((completedItems.length / checklistItems.length) * 100);
   };
 
@@ -163,4 +163,4 @@ const Workflow = () => {
   );
 };
 
-export default Workflow;
+export default Workflow; 

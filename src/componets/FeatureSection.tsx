@@ -1,15 +1,21 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { features } from "../constants";
 
-const FeatureSection = () => {
-  const [selectedFeature, setSelectedFeature] = useState(null);
-  const [hoveredFeature, setHoveredFeature] = useState(null);
+interface Feature {
+  icon: React.ReactNode;
+  text: string;
+  description: string;
+}
 
-  const handleFeatureClick = (feature) => {
+const FeatureSection: React.FC = () => {
+  const [selectedFeature, setSelectedFeature] = useState<Feature | null>(null);
+  const [hoveredFeature, setHoveredFeature] = useState<number | null>(null);
+
+  const handleFeatureClick = (feature: Feature): void => {
     setSelectedFeature(feature);
   };
 
-  const closeModal = () => {
+  const closeModal = (): void => {
     setSelectedFeature(null);
   };
 

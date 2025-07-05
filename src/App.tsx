@@ -7,7 +7,7 @@ import Pricing from './componets/Pricing'
 import Testimonials from './componets/Testimonials'
 import Footer from './componets/Footer'
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <>
     <Navbar /> 
@@ -23,4 +23,4 @@ const App = () => {
   )
 }
 
-export default App
+export default App 

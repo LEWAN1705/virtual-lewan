@@ -1,10 +1,11 @@
+import React from 'react';
 import { BotMessageSquare } from "lucide-react";
 import { BatteryCharging } from "lucide-react";
 import { Fingerprint } from "lucide-react";
 import { ShieldHalf } from "lucide-react";
 import { PlugZap } from "lucide-react";
 import { GlobeLock } from "lucide-react";
-
+// Remove imports for non-existent files
 import user1 from "../assets/profile-pictures/user1.jpg";
 import user2 from "../assets/profile-pictures/user2.jpg";
 import user3 from "../assets/profile-pictures/user3.jpg";
@@ -12,53 +13,87 @@ import user4 from "../assets/profile-pictures/user4.jpg";
 import user5 from "../assets/profile-pictures/user5.jpg";
 import user6 from "../assets/profile-pictures/user6.jpg";
 
-export const navItems = [
+interface NavItem {
+  label: string;
+  href: string;
+}
+
+interface Testimonial {
+  user: string;
+  company: string;
+  image: string;
+  text: string;
+}
+
+interface Feature {
+  icon: React.ReactNode;
+  text: string;
+  description: string;
+}
+
+interface ChecklistItem {
+  title: string;
+  description: string;
+}
+
+interface PricingOption {
+  title: string;
+  price: string;
+  features: string[];
+}
+
+interface Link {
+  href: string;
+  text: string;
+}
+
+export const navItems: NavItem[] = [
   { label: "Features", href: "#" },
   { label: "Workflow", href: "#" },
   { label: "Pricing", href: "#" },
   { label: "Testimonials", href: "#" },
 ];
 
-export const testimonials = [
+export const testimonials: Testimonial[] = [
   {
     user: "John Doe",
     company: "Stellar Solutions",
-    image: user1,
+    image: "https://randomuser.me/api/portraits/men/1.jpg",
     text: "I am extremely satisfied with the services provided. The team was responsive, professional, and delivered results beyond my expectations.",
   },
   {
     user: "Jane Smith",
     company: "Blue Horizon Technologies",
-    image: user2,
+    image: "https://randomuser.me/api/portraits/women/2.jpg",
     text: "I couldn't be happier with the outcome of our project. The team's creativity and problem-solving skills were instrumental in bringing our vision to life",
   },
   {
     user: "David Johnson",
     company: "Quantum Innovations",
-    image: user3,
+    image: "https://randomuser.me/api/portraits/men/3.jpg",
     text: "Working with this company was a pleasure. Their attention to detail and commitment to excellence are commendable. I would highly recommend them to anyone looking for top-notch service.",
   },
   {
     user: "Ronee Brown",
     company: "Fusion Dynamics",
-    image: user4,
+    image: "https://randomuser.me/api/portraits/women/4.jpg",
     text: "Working with the team at XYZ Company was a game-changer for our project. Their attention to detail and innovative solutions helped us achieve our goals faster than we thought possible. We are grateful for their expertise and professionalism!",
   },
   {
     user: "Michael Wilson",
     company: "Visionary Creations",
-    image: user5,
+    image: "https://randomuser.me/api/portraits/men/5.jpg",
     text: "I am amazed by the level of professionalism and dedication shown by the team. They were able to exceed our expectations and deliver outstanding results.",
   },
   {
     user: "Emily Davis",
     company: "Synergy Systems",
-    image: user6,
+    image: "https://randomuser.me/api/portraits/women/6.jpg",
     text: "The team went above and beyond to ensure our project was a success. Their expertise and dedication are unmatched. I look forward to working with them again in the future.",
   },
 ];
 
-export const features = [
+export const features: Feature[] = [
   {
     icon: <BotMessageSquare />,
     text: "Drag-and-Drop Interface",
@@ -97,7 +132,7 @@ export const features = [
   },
 ];
 
-export const checklistItems = [
+export const checklistItems: ChecklistItem[] = [
   {
     title: "Code merge made easy",
     description:
@@ -120,7 +155,7 @@ export const checklistItems = [
   },
 ];
 
-export const pricingOptions = [
+export const pricingOptions: PricingOption[] = [
   {
     title: "Free",
     price: "$0",
@@ -153,7 +188,7 @@ export const pricingOptions = [
   },
 ];
 
-export const resourcesLinks = [
+export const resourcesLinks: Link[] = [
   { href: "#", text: "Getting Started" },
   { href: "#", text: "Documentation" },
   { href: "#", text: "Tutorials" },
@@ -161,7 +196,7 @@ export const resourcesLinks = [
   { href: "#", text: "Community Forums" },
 ];
 
-export const platformLinks = [
+export const platformLinks: Link[] = [
   { href: "#", text: "Features" },
   { href: "#", text: "Supported Devices" },
   { href: "#", text: "System Requirements" },
@@ -169,10 +204,10 @@ export const platformLinks = [
   { href: "#", text: "Release Notes" },
 ];
 
-export const communityLinks = [
+export const communityLinks: Link[] = [
   { href: "#", text: "Events" },
   { href: "#", text: "Meetups" },
   { href: "#", text: "Conferences" },
   { href: "#", text: "Hackathons" },
   { href: "#", text: "Jobs" },
-];
+]; 

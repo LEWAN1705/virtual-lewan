@@ -1,18 +1,18 @@
+import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { useState, useEffect } from "react";
 import logo from "../assets/logo.png"
 import { navItems } from "../constants";
 
-const Navbar = () => {
-    const [mobileDrawerOpen, setMobileDrawOpen] = useState(false);
-    const [activeSection, setActiveSection] = useState('');
+const Navbar: React.FC = () => {
+    const [mobileDrawerOpen, setMobileDrawOpen] = useState<boolean>(false);
+    const [activeSection, setActiveSection] = useState<string>('');
 
-    const toggleNavbar = () => {
+    const toggleNavbar = (): void => {
         setMobileDrawOpen(!mobileDrawerOpen);
     };
 
     // Handle smooth scrolling to sections
-    const handleNavClick = (href, label) => {
+    const handleNavClick = (href: string, label: string): void => {
         setMobileDrawOpen(false); // Close mobile menu when clicking a link
         
         if (href === '#') {
@@ -30,7 +30,7 @@ const Navbar = () => {
 
     // Track active section on scroll
     useEffect(() => {
-        const handleScroll = () => {
+        const handleScroll = (): void => {
             const sections = ['features', 'workflow', 'pricing', 'testimonials'];
             const scrollPosition = window.scrollY + 100;
 
@@ -148,4 +148,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default Navbar 
